@@ -1,10 +1,46 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminLayoutComponent } from './FeatureModules/admin/admin-layout/admin-layout.component';
+import { MainLayoutComponent } from './Main/main-layout/main-layout.component';
+import { AppComponent } from './app.component';
+import { LoginComponent } from './Main/login/login.component';
+import { PropertyListComponent } from './FeatureModules/admin/Property/property-list/property-list.component';
+import { AddPropertyComponent } from './FeatureModules/admin/Property/add-property/add-property.component';
+import { SignupComponent } from './Main/signup/signup.component';
+import { PropertyDetailsComponent } from './FeatureModules/admin/Property/property-details/property-details.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: AppComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'signup', component: SignupComponent },
+    ],
+  },
+  {
+    path: 'admin',
+    component: AdminLayoutComponent,
+    loadChildren: () =>
+      import('./FeatureModules/admin/admin.module').then((m) => m.AdminModule), //lazy loading
+  },
+  {
+    path: 'admin/property',
+    component: PropertyListComponent,
+  },
+  {
+    path: 'admin/property/add',
+    component: AddPropertyComponent,
+  },
+  {
+    path: 'admin/property/details/:id', // ':id' is a route parameter
+    component: PropertyDetailsComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

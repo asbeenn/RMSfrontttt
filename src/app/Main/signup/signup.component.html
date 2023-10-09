@@ -1,0 +1,82 @@
+<div class="container">
+    <h1 class="mt-3">Create your account</h1>
+    <form #form="ngForm" (ngSubmit)="signup()">
+        <div class="mt-2">
+
+            <div class="mt-3">
+                <label  class="form-label">First Name</label>
+                <input type="text" id="firstName " class="form-control" name="firstName" [(ngModel)]="signupDto.firstName">
+            </div>
+
+           
+            <div class="mt-3">
+                <label  class="form-label">Middle Name</label>
+                <input type="text" id="middleName " class="form-control" name="middleName" [(ngModel)]="signupDto.middleName">
+            </div>
+
+            <div class="mt-3">
+                <label  class="form-label">Last Name</label>
+                <input type="text" id="lastName " class="form-control" name="lastName" [(ngModel)]="signupDto.lastName">
+            </div>
+
+            <div class="mt-3">
+                <label  class="form-label">Email</label>
+                <input type="text" id="email " class="form-control" name="email" [(ngModel)]="signupDto.email">
+            </div>
+
+            <div class="mt-3">
+                <label  class="form-label">Password</label>
+                <input type="password" id="password " class="form-control" name="password"[(ngModel)]="signupDto.password">
+            </div>
+
+            <div class="mt-3">
+                <label  class="form-label">PhotoUrl</label>
+                <input type="text" id="photourl " class="form-control" name="photoUrl" [(ngModel)]="signupDto.photoUrl">
+            </div>
+
+            <div class="mt-3">
+                <label  class="form-label">IdUrl</label>
+                <input type="text" id="idUrl " class="form-control" name="idUrl" [(ngModel)]="signupDto.iDUrl">
+            </div>
+
+            <div class="mt-3">
+                <label  class="form-label">Country</label>
+                <input type="text" id="country " class="form-control" name="country" [(ngModel)]="signupDto.country">
+            </div>
+
+            <div class="mt-3">
+                <label  class="form-label">StreetAddress1</label>
+                <input type="text" id="streetAddress1 " class="form-control" name="streetAddress1" [(ngModel)]="signupDto.streetAddress1">
+            </div>
+
+           
+            <div class="mt-3">
+                <label  class="form-label">StreetAddress2</label>
+                <input type="text" id="streetAddress2 " class="form-control" name="streetAddress2" [(ngModel)]="signupDto.streetAddress2">
+            </div>
+
+            <div class="mt-3">
+                <label  class="form-label">City/Suburb/Town</label>
+                <input type="text" id="citysuburbtown " class="form-control" name="citysuburbtown" [(ngModel)]="signupDto.citySuburbTown">
+            </div>
+
+            <div class="mt-3">
+                <label  class="form-label">ZipCode</label>
+                <input type="text" id="zipCode " class="form-control" name="zipCode" [(ngModel)]="signupDto.zipCode">
+            </div>
+           
+            <div class="mt-3">
+                <label  class="form-label">RoleName</label>
+                <input type="text" id="roleName " class="form-control" name="roleName" [(ngModel)]="signupDto.roleName">
+            </div>
+           
+            <div class="mt-3">
+                <button type="submit" class="btn btn-primary">SignUp</button>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+
+
