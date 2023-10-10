@@ -1,0 +1,18 @@
+<div class="container">
+    <h1 class="mt-3">User Details</h1>
+    <div class="row">
+      <div class="col-12">
+        <div class="card mt-3">
+          <img [src]="'https://localhost:7000' + userDetails?.photoUrl" class="card-img-top small-image" alt="{{ userDetails?.firstName }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ userDetails?.firstName }} {{ userDetails?.lastName }}</h5>
+            <p class="card-text">Email: {{ userDetails?.email }}</p>
+            <p class="card-text">Country: {{ userDetails?.country }}</p>
+            <p class="card-text">StreetAddress: {{ userDetails?.streetAddress1 }}</p>
+            <p class="card-text">City: {{ userDetails?.citySuburbTown }}</p>
+            <p class="card-text">ZipCode: {{ userDetails?.zipCode }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

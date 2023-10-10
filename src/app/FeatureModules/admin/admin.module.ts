@@ -9,6 +9,8 @@ import { AddPropertyComponent } from './Property/add-property/add-property.compo
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PropertyDetailsComponent } from './Property/property-details/property-details.component';
+import { ListUsersComponent } from './Users/list-users/list-users.component';
+import { UserDetailsComponent } from './Users/user-details/user-details.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { PropertyDetailsComponent } from './Property/property-details/property-d
     PropertyListComponent,
     AddPropertyComponent,
     PropertyDetailsComponent,
+    ListUsersComponent,
+    UserDetailsComponent,
   ],
   imports: [
     CommonModule,

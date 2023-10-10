@@ -20,35 +20,62 @@ export class AuthService {
         this.userSubject = new BehaviorSubject<jwtAuth>(userJson);
         this.user = this.userSubject.asObservable();
     }
-    public signUp(user: signup): Observable<jwtAuth> {
+    public signUp(user: FormData): Observable<jwtAuth> {
         return this.http.post<jwtAuth>(`${environment.apiURL}/${this.signupUrl}`, user);
 
     }
     public login(user: login): Observable<jwtAuth> {
         return this.http.post<jwtAuth>(`${environment.apiURL}/${this.loginUrl}`, user)
-        .pipe(
-            map((res) => {
-                localStorage.setItem("user", JSON.stringify(res));
-                this.userSubject.next(res);
-                return res;
-            })
-        );
+            .pipe(
+                map((res) => {
+                    localStorage.setItem("user", JSON.stringify(res));
+                    this.userSubject.next(res);
+                    return res;
+                })
+            );
     }
 
     getCurrentUserInfo() {
-        if(this.userSubject == undefined) return null;
+        if (this.userSubject == undefined) return null;
         return this.userSubject.value;
     }
-    
-    getUserEmail(){
+
+    getUserEmail() {
         let userInfo = this.userSubject.value;
-        if(userInfo != null) return userInfo.email;
+        if (userInfo != null) return userInfo.email;
         return "";
     }
-    getUserId(){
+    getUserId() {
         let userInfo = this.userSubject.value;
-        if(userInfo != null) return userInfo.userId;
+        if (userInfo != null) return userInfo.userId;
         return 0;
 
     }
 }
+// import { login } from '../Models/login';
+// import { Observable } from 'rxjs';
+// import { Injectable } from '@angular/core';
+// import { jwtAuth } from '../Models/jwtAuth';
+// import { signup } from '../Models/signup';
+// import { HttpClient } from '@angular/common/http';
+// import { environment } from 'src/environments/environment';
+// @Injectable({
+//   providedIn: 'root',
+// })
+// export class AuthService {
+//   signupUrl = 'User/Register';
+//   loginUrl = 'User/login';
+//   constructor(private http: HttpClient) {}
+//   public signUp(signup: FormData): Observable<jwtAuth> {
+//     return this.http.post<jwtAuth>(
+//       `${environment.apiURL}/${this.signupUrl}`,
+//       signup
+//     );
+//   }
+//   public login(user: login): Observable<jwtAuth> {
+//     return this.http.post<jwtAuth>(
+//       `${environment.apiURL}/${this.loginUrl}`,
+//       user
+//     );
+//   }
+// }
