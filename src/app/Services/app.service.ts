@@ -23,4 +23,10 @@ export class ApiService {
     debugger;
     return response;
   }
+
+  put(url: string, body: Object): Observable<any> {
+    this.endpoint = this.baseUrl.concat(url);
+    var response = this.httpClient.put(this.endpoint.toString(), body);
+    return response;
+  }
 }

@@ -10,5 +10,5 @@ export class Property{
     propertyType :string="" 
     rentCost:string="" 
     propertyImage: string=""
-    PropertyImageUrl:string=""
+    propertyImageUrl:string=""
 }

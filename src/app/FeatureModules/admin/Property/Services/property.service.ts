@@ -19,6 +19,10 @@ export class PropertyService {
     //return this.http.post<void>('https://localhost:7000/api/Property', model);
   }
 
+  updateProperty(model: FormData): Observable<void> {
+    let url: string = 'Property';
+    return this.apiService.put(url, model);
+  }
   listProperty() {
     let url: string = 'GetAllProperty';
     this.apiService.get(url)

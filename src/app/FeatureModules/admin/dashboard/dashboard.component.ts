@@ -9,20 +9,21 @@ import { Property } from '../Property/models/property';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  constructor(private propertyService:PropertyService, private authService:AuthService){}
-  properties!:Property[];
+  constructor(private propertyService: PropertyService, private authService: AuthService) { }
+  properties!: Property[];
 
   ngOnInit(): void {
     let userId = this.authService.getUserId();
     this.propertyService.getPropertyByUserId(userId)
-    .subscribe({
-        next:(res)=>{
+      .subscribe({
+        next: (res) => {
           this.properties = res as Property[];
+          console.log(this.properties)
         },
-        error:(error)=>{
+        error: (error) => {
           this.properties = [];
         }
-    })
+      })
   }
 
 }
