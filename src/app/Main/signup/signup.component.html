@@ -5,70 +5,76 @@
 
             <div class="mt-3">
                 <label  class="form-label">First Name</label>
-                <input type="text" id="firstName " class="form-control" name="firstName" [(ngModel)]="signupDto.firstName">
+                <input type="text" id="firstName " class="form-control" name="firstName" [(ngModel)]="model.firstName">
             </div>
 
            
             <div class="mt-3">
                 <label  class="form-label">Middle Name</label>
-                <input type="text" id="middleName " class="form-control" name="middleName" [(ngModel)]="signupDto.middleName">
+                <input type="text" id="middleName " class="form-control" name="middleName" [(ngModel)]="model.middleName">
             </div>
 
             <div class="mt-3">
                 <label  class="form-label">Last Name</label>
-                <input type="text" id="lastName " class="form-control" name="lastName" [(ngModel)]="signupDto.lastName">
+                <input type="text" id="lastName " class="form-control" name="lastName" [(ngModel)]="model.lastName">
             </div>
 
             <div class="mt-3">
                 <label  class="form-label">Email</label>
-                <input type="text" id="email " class="form-control" name="email" [(ngModel)]="signupDto.email">
+                <input type="text" id="email " class="form-control" name="email" [(ngModel)]="model.email">
             </div>
 
             <div class="mt-3">
                 <label  class="form-label">Password</label>
-                <input type="password" id="password " class="form-control" name="password"[(ngModel)]="signupDto.password">
+                <input type="password" id="password " class="form-control" name="password"[(ngModel)]="model.password">
             </div>
 
-            <div class="mt-3">
+            <!-- <div class="mt-3">
                 <label  class="form-label">PhotoUrl</label>
                 <input type="text" id="photourl " class="form-control" name="photoUrl" [(ngModel)]="signupDto.photoUrl">
-            </div>
-
+            </div> -->
+           
             <div class="mt-3">
                 <label  class="form-label">IdUrl</label>
-                <input type="text" id="idUrl " class="form-control" name="idUrl" [(ngModel)]="signupDto.iDUrl">
+                <input type="text" id="idUrl " class="form-control" name="idUrl" [(ngModel)]="model.iDUrl">
             </div>
 
             <div class="mt-3">
                 <label  class="form-label">Country</label>
-                <input type="text" id="country " class="form-control" name="country" [(ngModel)]="signupDto.country">
+                <input type="text" id="country " class="form-control" name="country" [(ngModel)]="model.country">
             </div>
 
             <div class="mt-3">
                 <label  class="form-label">StreetAddress1</label>
-                <input type="text" id="streetAddress1 " class="form-control" name="streetAddress1" [(ngModel)]="signupDto.streetAddress1">
+                <input type="text" id="streetAddress1 " class="form-control" name="streetAddress1" [(ngModel)]="model.streetAddress1">
             </div>
 
            
             <div class="mt-3">
                 <label  class="form-label">StreetAddress2</label>
-                <input type="text" id="streetAddress2 " class="form-control" name="streetAddress2" [(ngModel)]="signupDto.streetAddress2">
+                <input type="text" id="streetAddress2 " class="form-control" name="streetAddress2" [(ngModel)]="model.streetAddress2">
             </div>
 
             <div class="mt-3">
                 <label  class="form-label">City/Suburb/Town</label>
-                <input type="text" id="citysuburbtown " class="form-control" name="citysuburbtown" [(ngModel)]="signupDto.citySuburbTown">
+                <input type="text" id="citysuburbtown " class="form-control" name="citysuburbtown" [(ngModel)]="model.citySuburbTown">
             </div>
 
             <div class="mt-3">
                 <label  class="form-label">ZipCode</label>
-                <input type="text" id="zipCode " class="form-control" name="zipCode" [(ngModel)]="signupDto.zipCode">
+                <input type="text" id="zipCode " class="form-control" name="zipCode" [(ngModel)]="model.zipCode">
             </div>
            
             <div class="mt-3">
                 <label  class="form-label">RoleName</label>
-                <input type="text" id="roleName " class="form-control" name="roleName" [(ngModel)]="signupDto.roleName">
+                <input type="text" id="roleName " class="form-control" name="roleName" [(ngModel)]="model.roleName">
             </div>
+            <div class="mt-3">
+                <label class="form-label">Image</label>
+                <input type="file" id="photoUrl" class="form-control-file" name="photoUrl" (change)="onImageSelected($event)">
+                <img *ngIf="selectedImage" [src]="selectedImage" class="mt-2" style="max-width: 200px;" alt="Selected Image">
+            </div>
+
            
             <div class="mt-3">
                 <button type="submit" class="btn btn-primary">SignUp</button>

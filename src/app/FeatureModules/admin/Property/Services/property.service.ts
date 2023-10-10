@@ -30,11 +30,11 @@ export class PropertyService {
       });
   }
 
-  getPropertyDetails(propertyId: number): Observable<GetPropertyRequest> {
-    return this.http.get<GetPropertyRequest>(
-      `https://localhost:7000/api/Property/GetPropertyDetails/${propertyId}`
-    );
-  }
+  // getPropertyDetails(propertyId: number): Observable<GetPropertyRequest> {
+  //   return this.http.get<GetPropertyRequest>(
+  //     `https://localhost:7000/api/Property/GetPropertyDetails/${propertyId}`
+  //   );
+  // }
   getPropertyById(id: number): Observable<GetPropertyRequest> {
     return this.http.get<GetPropertyRequest>(
       'https://localhost:7000/api/Property/' + id

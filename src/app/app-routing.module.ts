@@ -8,6 +8,7 @@ import { PropertyListComponent } from './FeatureModules/admin/Property/property-
 import { AddPropertyComponent } from './FeatureModules/admin/Property/add-property/add-property.component';
 import { SignupComponent } from './Main/signup/signup.component';
 import { PropertyDetailsComponent } from './FeatureModules/admin/Property/property-details/property-details.component';
+import { UserDetailsComponent } from './FeatureModules/admin/Users/user-details/user-details.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'admin/property/details/:id', // ':id' is a route parameter
     component: PropertyDetailsComponent,
+  },
+  {
+    path: 'admin/user/details/:id', // ':id' is a route parameter
+    component: UserDetailsComponent,
   },
 ];
 
