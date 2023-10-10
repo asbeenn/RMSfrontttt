@@ -8,13 +8,14 @@ import { PropertyListComponent } from './FeatureModules/admin/Property/property-
 import { AddPropertyComponent } from './FeatureModules/admin/Property/add-property/add-property.component';
 import { SignupComponent } from './Main/signup/signup.component';
 import { PropertyDetailsComponent } from './FeatureModules/admin/Property/property-details/property-details.component';
+import { HomeComponent } from './Main/home/home.component';
 
 const routes: Routes = [
   {
     path: '',
     component: MainLayoutComponent,
     children: [
-      { path: '', component: AppComponent },
+      { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
       { path: 'signup', component: SignupComponent },
     ],
@@ -43,4 +44,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

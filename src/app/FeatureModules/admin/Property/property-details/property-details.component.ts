@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PropertyService } from '../Services/property.service';
-import { GetPropertyRequest } from '../models/property';
+import { Property } from '../models/property';
 
 @Component({
   selector: 'app-property-details',
@@ -10,7 +10,7 @@ import { GetPropertyRequest } from '../models/property';
 })
 export class PropertyDetailsComponent implements OnInit {
   propertyId: number = 0;
-  propertyDetails: GetPropertyRequest | null = null;
+  propertyDetails: Property | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,7 +25,7 @@ export class PropertyDetailsComponent implements OnInit {
 
       // Fetch the property details by propertyId using your service.
       this.propertyService.getPropertyById(this.propertyId).subscribe(
-        (property: GetPropertyRequest) => {
+        (property: Property) => {
           this.propertyDetails = property;
         },
         (error) => {

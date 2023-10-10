@@ -6,55 +6,64 @@
         <div class="mt-2">
 
             <div class="mt-3">
-                <label  class="form-label">Property Name</label>
-                <input type="text" id="propertyName " class="form-control" name="propertyName" [(ngModel)]="model.propertyName">
+                <label class="form-label">Property Name</label>
+                <input type="text" id="propertyName " class="form-control" name="propertyName"
+                    [(ngModel)]="model.propertyName">
             </div>
 
-           
+
             <div class="mt-3">
-                <label  class="form-label">Country</label>
+                <label class="form-label">Country</label>
                 <input type="text" id="country " class="form-control" name="country" [(ngModel)]="model.country">
             </div>
 
             <div class="mt-3">
-                <label  class="form-label">Street Address</label>
-                <input type="text" id="streetAddress " class="form-control" name="streetAddress" [(ngModel)]="model.streetAddress">
+                <label class="form-label">Street Address</label>
+                <input type="text" id="streetAddress " class="form-control" name="streetAddress"
+                    [(ngModel)]="model.streetAddress">
             </div>
 
             <div class="mt-3">
-                <label  class="form-label">Street Address 2</label>
-                <input type="text" id="streetAddress2 " class="form-control" name="streetAddress2" [(ngModel)]="model.streetAddress2">
+                <label class="form-label">Street Address 2</label>
+                <input type="text" id="streetAddress2 " class="form-control" name="streetAddress2"
+                    [(ngModel)]="model.streetAddress2">
             </div>
 
             <div class="mt-3">
-                <label  class="form-label">City/Suburb/Town</label>
-                <input type="text" id="citySuburbTown " class="form-control" name="citySuburbTown"[(ngModel)]="model.citySuburbTown">
+                <label class="form-label">City/Suburb/Town</label>
+                <input type="text" id="citySuburbTown " class="form-control" name="citySuburbTown"
+                    [(ngModel)]="model.citySuburbTown">
             </div>
 
             <div class="mt-3">
-                <label  class="form-label">State/Provience/Region</label>
-                <input type="text" id="stateProvienceRegion " class="form-control" name="stateProvienceRegion" [(ngModel)]="model.stateProvienceRegion">
+                <label class="form-label">State/Provience/Region</label>
+                <input type="text" id="stateProvienceRegion " class="form-control" name="stateProvienceRegion"
+                    [(ngModel)]="model.stateProvienceRegion">
             </div>
 
             <div class="mt-3">
-                <label  class="form-label">Zip/PostalCode</label>
-                <input type="text" id="zipPostalCode " class="form-control" name="zipPostalCode" [(ngModel)]="model.zipPostalCode">
+                <label class="form-label">Zip/PostalCode</label>
+                <input type="text" id="zipPostalCode " class="form-control" name="zipPostalCode"
+                    [(ngModel)]="model.zipPostalCode">
             </div>
 
             <div class="mt-3">
-                <label  class="form-label">Property Type</label>
-                <input type="text" id="propertyType " class="form-control" name="propertyType" [(ngModel)]="model.propertyType">
+                <label class="form-label">Property Type</label>
+                <input type="text" id="propertyType " class="form-control" name="propertyType"
+                    [(ngModel)]="model.propertyType">
             </div>
 
             <div class="mt-3">
-                <label  class="form-label">Propety Cost Per Month</label>
+                <label class="form-label">Propety Cost Per Month</label>
                 <input type="text" id="rentCost " class="form-control" name="rentCost" [(ngModel)]="model.rentCost">
             </div>
 
             <div class="mt-3">
                 <label class="form-label">Property Image</label>
-                <input type="file" id="propertyImage" class="form-control-file" name="propertyImage" (change)="onImageSelected($event)">
-                <img *ngIf="selectedImage" [src]="selectedImage" class="mt-2" style="max-width: 200px;" alt="Selected Image">
+                <input type="file" id="propertyImage" class="form-control-file" name="propertyImage"
+                    (change)="onImageSelected($event)">
+                <img *ngIf="selectedImage" [src]="selectedImage" class="mt-2" style="max-width: 200px;"
+                    alt="Selected Image">
             </div>
             <!-- <div class="mt-3">
                 <label class="form-label">Property Image</label>

@@ -1,4 +1,4 @@
-export class GetPropertyRequest{
+export class Property{
     propertyId:number=0
     propertyName:string=""
     country:string=""
@@ -10,4 +10,5 @@ export class GetPropertyRequest{
     propertyType :string="" 
     rentCost:string="" 
     propertyImage: string=""
+    PropertyImageUrl:string=""
 }

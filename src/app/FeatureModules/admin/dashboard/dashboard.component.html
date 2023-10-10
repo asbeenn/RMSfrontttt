@@ -1,1 +1,12 @@
-<p>dashboard works!</p>
+<h1>Properties</h1>
+<div *ngFor="let property of properties">
+    <div class="card">
+        <img src="https://localhost:7000/${{property.PropertyImageUrl}}" class="card-img-top" alt="Fissure in Sandstone" />
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+            <a href="#!" class="btn btn-primary">Button</a>
+        </div>
+    </div>
+</div>

@@ -18,12 +18,16 @@ import { AdminLayoutComponent } from 'src/app/FeatureModules/admin/admin-layout/
 import { SignupComponent } from './Main/signup/signup.component';
 import { AuthenticationInterceptor } from './Services/interceptor';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './Main/home/home.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     MainLayoutComponent,
     SignupComponent,
+    HomeComponent,
+
   ],
   imports: [
     BrowserModule,
