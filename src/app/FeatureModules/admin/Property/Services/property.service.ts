@@ -4,12 +4,14 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Form } from '@angular/forms';
 import { GetPropertyRequest } from '../models/property';
+import { propertyByUser } from '../models/propertyByUserId.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PropertyService {
   list: GetPropertyRequest[] = [];
+  userlist: propertyByUser[] = [];
   constructor(private http: HttpClient) {}
 
   addProperty(model: FormData): Observable<void> {
@@ -29,7 +31,17 @@ export class PropertyService {
         },
       });
   }
-
+  listPropertyByUser() {
+    this.http.get('https://localhost:7000/api/Property/userId').subscribe({
+      next: (res) => {
+        this.userlist = res as propertyByUser[];
+        //console.log(res);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
   // getPropertyDetails(propertyId: number): Observable<GetPropertyRequest> {
   //   return this.http.get<GetPropertyRequest>(
   //     `https://localhost:7000/api/Property/GetPropertyDetails/${propertyId}`
@@ -38,6 +50,11 @@ export class PropertyService {
   getPropertyById(id: number): Observable<GetPropertyRequest> {
     return this.http.get<GetPropertyRequest>(
       'https://localhost:7000/api/Property/' + id
+    );
+  }
+  getPropertyByUserId(userid: number): Observable<propertyByUser> {
+    return this.http.get<propertyByUser>(
+      'https://localhost:7000//api/Property/' + userid
     );
   }
 }

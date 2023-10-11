@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PropertyDetailsComponent } from './Property/property-details/property-details.component';
 import { ListUsersComponent } from './Users/list-users/list-users.component';
 import { UserDetailsComponent } from './Users/user-details/user-details.component';
+import { SearchFilterPipe } from 'src/app/search-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,8 @@ import { UserDetailsComponent } from './Users/user-details/user-details.componen
     PropertyDetailsComponent,
     ListUsersComponent,
     UserDetailsComponent,
+    PropertyListComponent,
+    SearchFilterPipe,
   ],
   imports: [
     CommonModule,
@@ -29,5 +32,6 @@ import { UserDetailsComponent } from './Users/user-details/user-details.componen
     FormsModule,
     HttpClientModule,
   ],
+  exports: [PropertyDetailsComponent, PropertyListComponent],
 })
 export class AdminModule {}

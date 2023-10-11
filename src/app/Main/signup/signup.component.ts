@@ -5,35 +5,17 @@ import { jwtAuth } from 'src/app/Models/jwtAuth';
 import { AuthService } from 'src/app/Services/auth.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
 })
-// export class SignupComponent {
-//   signupDto = new signup();
-//   router = inject(Router);
-//   jwtDto = new jwtAuth();
-
-//   constructor(private authService: AuthService) {}
-
-//   onImageSelected(event: any) {
-//     if (event.target.files && event.target.files.length > 0) {
-//       const file = event.target.files[0];
-//       this.signupDto.photoUrl = file;
-//     }
-//   }
-//   signup() {
-//     console.log(this.signupDto);
-//     this.authService.signUp(this.signupDto).subscribe(() => {
-//       // After successful signup, navigate to the login component.
-//       this.router.navigate(['/login']); // Replace 'login' with the actual route path for your login component.
-//     });
-//   }
-// }
 export class SignupComponent {
   model: signup;
   selectedImage: any[] = [];
+  router = inject(Router);
+  error = '';
 
   constructor(private authService: AuthService) {
     this.model = {
@@ -52,6 +34,7 @@ export class SignupComponent {
       roleName: '',
     };
   }
+
   onImageSelected(event: any) {
     if (event.target.files && event.target.files.length > 0) {
       const file = event.target.files[0];
@@ -100,9 +83,11 @@ export class SignupComponent {
       .subscribe({
         next: (response) => {
           console.log('Successful!!!', response);
+          this.router.navigate(['/login']);
         },
-        error: (error) => {
-          console.log('Error occured', error);
+        error: (e) => {
+          this.error = e;
+          console.log('Error occured', e);
         },
       });
   }

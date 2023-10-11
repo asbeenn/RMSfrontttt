@@ -14,6 +14,9 @@
           <p class="card-text">City: {{ propertyDetails?.citySuburbTown }}</p>
           <p class="card-text">ZipCode: {{ propertyDetails?.zipPostalCode }}</p>
           <p class="card-text">Rent Cost: {{ propertyDetails?.rentCost }}</p>
+          <div *ngIf="role==='User'" >
+            <a class="btn btn-primary" [routerLink]="['/user/book/'+propertyDetails?.propertyId]" (click)="sendPropertyIdValue()">Book</a>
+          </div>
         </div>
       </div>
     </div>

@@ -61,15 +61,15 @@ export class LoginComponent implements OnInit {
             'http://schemas.microsoft.com/ws/2008/06/identity/claims/role'
           ] === 'Tenant'
         ) {
-          this.router.navigate(['/signup']);
+          this.router.navigate(['/tenant']);
         } else {
-          this.router.navigate(['/signup']);
+          this.router.navigate(['/user']);
         }
       });
     }
   }
 }
-type UserPayLoad = {
+export type UserPayLoad = {
   FirstName: string;
   'http://schemas.microsoft.com/ws/2008/06/identity/claims/role': string;
 

@@ -25,21 +25,26 @@
 
 <div class="container">
   <h1 class="mt-3">All Available Properties</h1>
+  <div class="search-hero">
 
-  <div class="d-flex justify-content-end mt-3">
+    <input type="text" name="search" [(ngModel)]="searchText" placeholder="Search Property Type">
+
+</div>
+
+  <div *ngIf="role==='Admin'" class="d-flex justify-content-end mt-3">
     <a class="btn btn-primary" [routerLink]="['/admin/property/add']">Add Property</a>
   </div>
-
+ 
   <div class="row">
     <div class="col-12">
       <div class="card-columns mt-3">
-        <div class="card" *ngFor="let property of service.list">
+        <div class="card" *ngFor="let property of service.list | searchFilter: searchText">
             <img [src]="'https://localhost:7000' + property.propertyImage" class="card-img-top card-img-small" alt="{{ property.propertyName }}">
             <div class="card-body">
               <h5 class="card-title">Property Name:{{ property.propertyName }}</h5>
               <p class="card-text">Type:{{ property.propertyType }}</p>
               <a [routerLink]="['/admin/property/details', property.propertyId]" class="btn btn-primary">More Details</a>
-
+             
             </div>
           </div>
       </div>

@@ -1,0 +1,17 @@
+
+<div class="container">
+    <h1 class="mt-3">My Property Details</h1>
+    <div class="row">
+      <div class="col-12">
+        <div class="card mt-3">
+          <img [src]="'https://localhost:7000' + propertyDetails?.propertyImage" class="card-img-top small-image" alt="{{ propertyDetails?.propertyName }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ propertyDetails?.propertyName}}</h5> 
+            <p class="card-text">Country: {{ propertyDetails?.country }}</p>
+            <p class="card-text">StreetAddress: {{ propertyDetails?.streetAddress }}</p>
+            <p class="card-text">StreetAddress2: {{ propertyDetails?.streetAddress2 }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

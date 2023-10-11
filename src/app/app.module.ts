@@ -18,12 +18,17 @@ import { AdminLayoutComponent } from 'src/app/FeatureModules/admin/admin-layout/
 import { SignupComponent } from './Main/signup/signup.component';
 import { AuthenticationInterceptor } from './Services/interceptor';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserDashModule } from './FeatureModules/user-dash/user-dash.module';
+import { PropertyDetailsComponent } from './FeatureModules/admin/Property/property-details/property-details.component';
+import { SearchFilterPipe } from './search-filter.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     MainLayoutComponent,
     SignupComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -31,6 +36,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MdbCollapseModule,
     BrowserAnimationsModule,
     AdminModule,
+    UserDashModule,
     FormsModule,
     ReactiveFormsModule,
   ],
