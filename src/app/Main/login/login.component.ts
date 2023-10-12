@@ -78,7 +78,7 @@ export type UserPayLoad = {
 
   LastName: string;
   MiddleName: string;
-  UserId: string;
+  UserId: number;
   aud: string;
   email: string;
 };

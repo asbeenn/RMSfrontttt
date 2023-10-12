@@ -6,6 +6,8 @@ import { signup } from '../Models/signup';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { UserPayLoad } from '../Main/login/login.component';
 @Injectable({
     providedIn: 'root',
 })
@@ -17,18 +19,18 @@ export class AuthService {
 
     constructor(private http: HttpClient, private router: Router) {
 
-        let hasUserData:boolean = false;
+        let hasUserData: boolean = false;
         let userJSONString = localStorage.getItem("user");
         this.userSubject = new BehaviorSubject<jwtAuth>(new jwtAuth());
-        
+
         if (userJSONString != undefined) {
-            
-            if(userJSONString.length > 0){
+
+            if (userJSONString.length > 0) {
                 let userJson = JSON.parse(userJSONString);
                 this.userSubject = new BehaviorSubject<jwtAuth>(userJson);
-            }                
+            }
         }
-        
+
         this.user = this.userSubject.asObservable();
     }
     public signUp(signup: FormData): Observable<jwtAuth> {
@@ -59,4 +61,11 @@ export class AuthService {
         this.userSubject.next(new jwtAuth());
         this.router.navigate(['/']);
     }
+    getUserId() {
+        const helper = new JwtHelperService();
+        const decodedToken = helper.decodeToken(this.userSubject.value.token) as UserPayLoad;
+        return decodedToken.UserId;
+
+    }
+
 }

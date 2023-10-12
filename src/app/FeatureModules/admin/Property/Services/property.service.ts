@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Form } from '@angular/forms';
 import { GetPropertyRequest } from '../models/property';
 import { propertyByUser } from '../models/propertyByUserId.model';
+import { Booking } from 'src/app/Models/booking';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ import { propertyByUser } from '../models/propertyByUserId.model';
 export class PropertyService {
   list: GetPropertyRequest[] = [];
   userlist: propertyByUser[] = [];
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   addProperty(model: FormData): Observable<void> {
     return this.http.post<void>('https://localhost:7000/api/Property', model);
@@ -55,6 +56,12 @@ export class PropertyService {
   getPropertyByUserId(userid: number): Observable<propertyByUser> {
     return this.http.get<propertyByUser>(
       'https://localhost:7000//api/Property/' + userid
+    );
+  }
+
+  createBooking(booking: Booking): Observable<Booking> {
+    return this.http.post<Booking>(
+      'https://localhost:7000/api/Booking/createBooking', booking
     );
   }
 }
