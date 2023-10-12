@@ -15,7 +15,6 @@ export class AddPropertyComponent implements OnInit {
 
   pForm!: FormGroup;
   submitted: boolean = false;
-  f() { return this.pForm.controls; }
 
   constructor(private propertyService: PropertyService, private formBuilder: FormBuilder) {
 

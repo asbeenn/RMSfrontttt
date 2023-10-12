@@ -11,13 +11,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
 })
-export class SignupComponent {
+export class SignupComponent implements OnInit {
   model: signup;
   selectedImage: any[] = [];
   router = inject(Router);
   error = '';
 
-  constructor(private authService: AuthService) {
+  submitted = false;
+  uForm!: FormGroup;
+
+  constructor(private authService: AuthService, private formBuilder: FormBuilder) {
     this.model = {
       firstName: '',
       middleName: '',
@@ -35,6 +38,24 @@ export class SignupComponent {
     };
   }
 
+  ngOnInit(): void {
+    this.uForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      middleName: [''],
+      lastName: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+      //photoUrl: ['', Validators.required],
+      iDUrl: ['', Validators.required],
+      country: ['', Validators.required],
+      streetAddress1: ['', Validators.required],
+      streetAddress2: [''],
+      citysuburbtown: ['', Validators.required],
+      zipCode: [''],
+      roleName: ['', Validators.required]
+    })
+  }
+
   onImageSelected(event: any) {
     if (event.target.files && event.target.files.length > 0) {
       const file = event.target.files[0];
@@ -43,29 +64,26 @@ export class SignupComponent {
   }
 
   signup() {
+
+    debugger;
+    this.submitted = true;
+    if (this.uForm.invalid) return;
+
     const formData = new FormData();
 
-    formData.set('firstName', this.model.firstName);
+    formData.set('firstName', this.uForm.controls['firstName'].value);
+    formData.set('middleName', this.uForm.controls['middleName'].value);
+    formData.set('lastName', this.uForm.controls['lastName'].value);
+    formData.set('email', this.uForm.controls['email'].value);
+    formData.set('password', this.uForm.controls['password'].value);
+    formData.set('iDUrl', this.uForm.controls['iDUrl'].value);
+    formData.set('country', this.uForm.controls['country'].value);
+    formData.set('streetAddress1', this.uForm.controls['streetAddress1'].value);
+    formData.set('streetAddress2', this.uForm.controls['streetAddress2'].value);
+    formData.set('citySuburbTown', this.uForm.controls['citysuburbtown'].value);
 
-    formData.set('middleName', this.model.middleName);
-
-    formData.set('lastName', this.model.lastName);
-
-    formData.set('email', this.model.email);
-
-    formData.set('password', this.model.password);
-
-    formData.set('iDUrl', this.model.iDUrl);
-
-    formData.set('country', this.model.country);
-
-    formData.set('streetAddress1', this.model.streetAddress1);
-    formData.set('streetAddress2', this.model.streetAddress2);
-    formData.set('citySuburbTown', this.model.citySuburbTown);
-
-    formData.set('roleName', this.model.roleName);
-
-    formData.set('zipCode', this.model.zipCode);
+    formData.set('roleName', this.uForm.controls['roleName'].value);
+    formData.set('zipCode', this.uForm.controls['zipCode'].value);
 
     if (this.model.photoUrl) {
       formData.append(
