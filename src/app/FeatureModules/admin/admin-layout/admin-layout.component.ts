@@ -5,13 +5,14 @@ import { PropertyByuserComponent } from '../../user-dash/property-byuser/propert
 import { propertyByUser } from '../Property/models/propertyByUserId.model';
 import { PropertyService } from '../Property/Services/property.service';
 import { GetPropertyRequest } from '../Property/models/property';
+import { AuthService } from 'src/app/Services/auth.service';
 @Component({
   selector: 'app-admin-layout',
   templateUrl: './admin-layout.component.html',
   styleUrls: ['./admin-layout.component.scss'],
 })
 export class AdminLayoutComponent implements OnInit {
-  constructor(public service: PropertyService) {}
+  constructor(public service: PropertyService, private authService:AuthService) {}
   role!: string;
   ngOnInit(): void {
     // this.service.getPropertyByUserId(userid);
@@ -43,5 +44,9 @@ export class AdminLayoutComponent implements OnInit {
     } else {
       this.role = 'User';
     }
+  }
+
+  onLogout(){
+    this.authService.logoff();
   }
 }

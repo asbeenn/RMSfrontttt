@@ -1,71 +1,132 @@
-<app-admin-layout></app-admin-layout>
-
 <div class="container">
-    
-    <form #form="ngForm" (ngSubmit)="onFormSubmit()" class="property-form">
+
+    <form [formGroup]="pForm" (ngSubmit)="onFormSubmit()" class="card property-form mt-2">
         <h1 class="mt-3">Add Property</h1>
         <div class="mt-2">
+            <div class="row">
+                <div class="col-6">
+                    <div class="mt-3">
+                        <label class="form-label">Property Name</label>
+                        <input type="text" id="propertyName" formControlName="propertyName" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && pForm.controls['propertyName'].errors }" />
+                        <div *ngIf="submitted && pForm.controls['propertyName'].errors" class="invalid-feedback">
+                            <div *ngIf="pForm.controls['propertyName'].errors['required']">Property name is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="mt-3">
-                <label  class="form-label">Property Name</label>
-                <input type="text" id="propertyName " class="form-control" name="propertyName" [(ngModel)]="model.propertyName">
+
+                <div class="col-6">
+                    <div class="mt-3">
+                        <label class="form-label">Country</label>
+                        <input type="text" id="country " class="form-control" formControlName="country"
+                            [ngClass]="{ 'is-invalid': submitted && pForm.controls['country'].errors }" />
+                        <div *ngIf="submitted && pForm.controls['country'].errors" class="invalid-feedback">
+                            <div *ngIf="pForm.controls['country'].errors['required']">Country is required</div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-
-           
-            <div class="mt-3">
-                <label  class="form-label">Country</label>
-                <input type="text" id="country " class="form-control" name="country" [(ngModel)]="model.country">
+            <div class="row">
+                <div class="col-6">
+                    <div class="mt-3">
+                        <label class="form-label">Street Address</label>
+                        <input type="text" id="streetAddress " class="form-control" formControlName="streetAddress"
+                            [ngClass]="{ 'is-invalid': submitted && pForm.controls['streetAddress'].errors }" />
+                        <div *ngIf="submitted && pForm.controls['streetAddress'].errors" class="invalid-feedback">
+                            <div *ngIf="pForm.controls['streetAddress'].errors['required']">Street address is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="mt-3">
+                        <label class="form-label">Street Address 2</label>
+                        <input type="text" id="streetAddress2 " class="form-control" formControlName="streetAddress2" />
+                    </div>
+                </div>
             </div>
-
-            <div class="mt-3">
-                <label  class="form-label">Street Address</label>
-                <input type="text" id="streetAddress " class="form-control" name="streetAddress" [(ngModel)]="model.streetAddress">
+            <div class="row">
+                <div class="col-4">
+                    <div class="mt-3">
+                        <label class="form-label">City/Suburb/Town</label>
+                        <input type="text" id="citySuburbTown " class="form-control" formControlName="citySuburbTown"
+                            [ngClass]="{ 'is-invalid': submitted && pForm.controls['citySuburbTown'].errors }" />
+                        <div *ngIf="submitted && pForm.controls['citySuburbTown'].errors" class="invalid-feedback">
+                            <div *ngIf="pForm.controls['citySuburbTown'].errors['required']">City/Suburb/Town is
+                                required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="mt-3">
+                        <label class="form-label">State/Provience/Region</label>
+                        <input type="text" id="stateProvienceRegion " class="form-control"
+                            formControlName="stateProvienceRegion"
+                            [ngClass]="{ 'is-invalid': submitted && pForm.controls['stateProvienceRegion'].errors }" />
+                        <div *ngIf="submitted && pForm.controls['stateProvienceRegion'].errors"
+                            class="invalid-feedback">
+                            <div *ngIf="pForm.controls['stateProvienceRegion'].errors['required']">
+                                State/Provience/Region is
+                                required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="mt-3">
+                        <label class="form-label">Zip/PostalCode</label>
+                        <input type="text" id="zipPostalCode " class="form-control" formControlName="zipPostalCode"
+                            [ngClass]="{ 'is-invalid': submitted && pForm.controls['zipPostalCode'].errors }" />
+                        <div *ngIf="submitted && pForm.controls['zipPostalCode'].errors" class="invalid-feedback">
+                            <div *ngIf="pForm.controls['zipPostalCode'].errors['required']">Zip/PostalCode is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="mt-3">
+                        <label class="form-label">Property Type</label>
+                        <input type="text" id="propertyType " class="form-control" formControlName="propertyType"
+                            [ngClass]="{ 'is-invalid': submitted && pForm.controls['propertyType'].errors }" />
+                        <div *ngIf="submitted && pForm.controls['propertyType'].errors" class="invalid-feedback">
+                            <div *ngIf="pForm.controls['propertyType'].errors['required']">Property Type is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="mt-3">
-                <label  class="form-label">Street Address 2</label>
-                <input type="text" id="streetAddress2 " class="form-control" name="streetAddress2" [(ngModel)]="model.streetAddress2">
+                <div class="col-6">
+                    <div class="mt-3">
+                        <label class="form-label">Propety Cost Per Month</label>
+                        <input type="text" id="rentCost " class="form-control" formControlName="rentCost"
+                            [ngClass]="{ 'is-invalid': submitted && pForm.controls['rentCost'].errors }" />
+                        <div *ngIf="submitted && pForm.controls['rentCost'].errors" class="invalid-feedback">
+                            <div *ngIf="pForm.controls['rentCost'].errors['required']">Cost Per Month is required</div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-
-            <div class="mt-3">
-                <label  class="form-label">City/Suburb/Town</label>
-                <input type="text" id="citySuburbTown " class="form-control" name="citySuburbTown"[(ngModel)]="model.citySuburbTown">
-            </div>
-
-            <div class="mt-3">
-                <label  class="form-label">State/Provience/Region</label>
-                <input type="text" id="stateProvienceRegion " class="form-control" name="stateProvienceRegion" [(ngModel)]="model.stateProvienceRegion">
-            </div>
-
-            <div class="mt-3">
-                <label  class="form-label">Zip/PostalCode</label>
-                <input type="text" id="zipPostalCode " class="form-control" name="zipPostalCode" [(ngModel)]="model.zipPostalCode">
-            </div>
-
-            <div class="mt-3">
-                <label  class="form-label">Property Type</label>
-                <input type="text" id="propertyType " class="form-control" name="propertyType" [(ngModel)]="model.propertyType">
-            </div>
-
-            <div class="mt-3">
-                <label  class="form-label">Propety Cost Per Month</label>
-                <input type="text" id="rentCost " class="form-control" name="rentCost" [(ngModel)]="model.rentCost">
-            </div>
-
+            
             <div class="mt-3">
                 <label class="form-label">Property Image</label>
-                <input type="file" id="propertyImage" class="form-control-file" name="propertyImage" (change)="onImageSelected($event)">
-                <img *ngIf="selectedImage" [src]="selectedImage" class="mt-2" style="max-width: 200px;" alt="Selected Image">
+                <input type="file" id="propertyImage" class="form-control-file" name="propertyImage"
+                    (change)="onImageSelected($event)">
+                <img *ngIf="selectedImage" [src]="selectedImage" class="mt-2" style="max-width: 200px;"
+                    alt="Selected Image">
             </div>
-            <!-- <div class="mt-3">
-                <label class="form-label">Property Image</label>
-                <input type="file" id="propertyImage" class="form-control-file" name="propertyImage" [(ngModel)]="model.propertyImage">
-            </div>
-             -->
-            <div class="mt-3">
-                <button type="submit" class="btn btn-primary">Save</button>
-            </div>
-
         </div>
-    </form>
+
+
+
+<div class="mt-3">
+    <button type="submit" class="btn btn-primary">Save</button>
+</div>
+
+</form>
 </div>

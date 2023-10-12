@@ -65,22 +65,22 @@ const routes: Routes = [
         (m) => m.TenantDashModule
       ), //lazy loading
   },
-  {
-    path: 'admin/property',
-    component: PropertyListComponent,
-  },
-  {
-    path: 'admin/property/add',
-    component: AddPropertyComponent,
-  },
-  {
-    path: 'admin/property/details/:id', // ':id' is a route parameter
-    component: PropertyDetailsComponent,
-  },
-  {
-    path: 'admin/user/details/:id', // ':id' is a route parameter
-    component: UserDetailsComponent,
-  },
+  // {
+  //   path: 'admin/property',
+  //   component: PropertyListComponent,
+  // },
+  // {
+  //   path: 'admin/property/add',
+  //   component: AddPropertyComponent,
+  // },
+  // {
+  //   path: 'admin/property/details/:id', // ':id' is a route parameter
+  //   component: PropertyDetailsComponent,
+  // },
+  // {
+  //   path: 'admin/user/details/:id', // ':id' is a route parameter
+  //   component: UserDetailsComponent,
+  // },
 ];
 
 @NgModule({
