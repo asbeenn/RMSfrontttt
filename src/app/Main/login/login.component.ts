@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loginDto = new login();
   router = inject(Router);
-
+  submitted: boolean = false;
   jwtDto = new jwtAuth();
 
   constructor(
@@ -35,6 +35,9 @@ export class LoginComponent implements OnInit {
     //throw new Error('Method not implemented.');
   }
   logins() {
+    this.submitted = true;
+    if (this.loginForm.invalid) return;
+
     if (this.loginForm.valid) {
       const loginDto = this.loginForm.value;
       this.authService.login(loginDto).subscribe((jwtDto) => {
@@ -52,13 +55,13 @@ export class LoginComponent implements OnInit {
 
         if (
           decodedToken[
-            'http://schemas.microsoft.com/ws/2008/06/identity/claims/role'
+          'http://schemas.microsoft.com/ws/2008/06/identity/claims/role'
           ] === 'Admin'
         ) {
           this.router.navigate(['/admin']);
         } else if (
           decodedToken[
-            'http://schemas.microsoft.com/ws/2008/06/identity/claims/role'
+          'http://schemas.microsoft.com/ws/2008/06/identity/claims/role'
           ] === 'Tenant'
         ) {
           this.router.navigate(['/tenant']);

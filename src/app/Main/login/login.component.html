@@ -25,24 +25,32 @@
 <!-- login.component.html -->
 
 <div class="login-container">
-    <div class="login-box">
-      <h1 class="login-title">Log into your Account</h1>
-      <form [formGroup]="loginForm" (ngSubmit)="logins()">
-        <div class="form-group">
-          <input type="text" id="email" class="form-control" formControlName="email" placeholder="Email">
+  <div class="login-box">
+    <h1 class="login-title">Log into your Account</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="logins()">
+      <div class="form-group">
+        <input type="text" id="ema~il" class="form-control" formControlName="email" placeholder="Email"
+          [ngClass]="{ 'is-invalid': submitted && loginForm.controls['email'].errors }" />
+        <div *ngIf="submitted && loginForm.controls['email'].errors" class="invalid-feedback">
+          <div *ngIf="loginForm.controls['email'].errors['required']">Email name is required
+          </div>
+          <div *ngIf="loginForm.controls['email'].errors['email']">Valid email is required
+          </div>
         </div>
-        <div class="form-group">
-          <input type="password" id="password" class="form-control" formControlName="password" placeholder="Password">
+
+      </div>
+      <div class="form-group">
+        <input type="password" id="password" class="form-control" formControlName="password" placeholder="Password"
+          [ngClass]="{ 'is-invalid': submitted && loginForm.controls['password'].errors }" />
+        <div *ngIf="submitted && loginForm.controls['password'].errors" class="invalid-feedback">
+          <div *ngIf="loginForm.controls['password'].errors['required']">Password name is required
+          </div>
         </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary">Login</button>
-        </div>
-      </form>
-      <p class="text-muted">Don't have an account? <a href="/signup">Sign up</a></p>
-    </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Login</button>
+      </div>
+    </form>
+    <p class="text-muted">Don't have an account? <a href="/signup">Sign up</a></p>
   </div>
-  
-  
-
-
-
+</div>
