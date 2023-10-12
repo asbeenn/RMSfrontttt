@@ -59,11 +59,7 @@ const routes: Routes = [
   },
   {
     path: 'tenant',
-    //component: TenantlayoutComponent,
-    loadChildren: () =>
-      import('./FeatureModules/tenant-dash/tenant-dash.module').then(
-        (m) => m.TenantDashModule
-      ), //lazy loading
+    component: TenantlayoutComponent, loadChildren: () => import('./FeatureModules/tenant-dash/tenant-dash.module').then((m) => m.TenantDashModule)
   },
   // {
   //   path: 'admin/property',
@@ -87,4 +83,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
